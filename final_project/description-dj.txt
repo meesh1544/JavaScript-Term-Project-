@@ -1,0 +1,33 @@
+///---------------------------------------
+/// Game Description
+///---------------------------------------
+Dress Josie is an iterractive game that you drag the clothes and accessories
+to dress josie. There are many diffenent ways she can dressed and accessoried, 
+so have fun!
+
+///---------------------------------------
+/// How to Play
+///---------------------------------------
+Start by picking the clothes for Josie and finish getting her ready by accessorizing. 
+
+///---------------------------------------
+/// File Directory
+///---------------------------------------
+finalProject
+    --> Dress Josie
+        -> css
+            ->myDragandDrop.css
+        ->media 
+            -> 11-111565_clipart_baby-dress-clip-art-png-download.png
+            -> 41-418871_felt-dolls-paper-dolls-girl-clipart-dress-up.png
+            -> 122710.png
+            -> dressing-room.png
+            -> image_processing20200917-32423-1wsrke.png
+            -> 1070533.png
+            -> img_471558.png
+            -> 1545275.png
+            -> pants-md(1).png
+            -> sandals-md.png
+            -> R.png
+        ->myDragandDrop.html
+        ->readMe.txt

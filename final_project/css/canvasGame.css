@@ -1,0 +1,49 @@
+canvas{
+    border: 8px solid darkblue;
+    background-image: url(../media/ocean.jpeg);
+}
+.close{
+    display: inline-block;
+    text-align: right;
+    padding: 8px;
+    cursor: pointer;
+}
+#modal i{
+    font-size: 24px;
+    color: #FF2626;
+}
+#modal i:hover{
+    cursor: pointer;
+}
+#res{
+    font-size: 18px;
+}
+#close {
+    color: #FB2323;
+    float: right;
+    font-size: 28px;
+    padding-right: 6px;
+    font-weight: bold;
+}
+#close:hover,#close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.arrow{
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    padding: 3px 10px;
+    font-size: 36px;
+    z-index: 1;
+    border: 1px solid #1D6CEE;
+    background-color: white;
+    opacity: 1;
+}
+.arrow:hover{
+    opacity: .8;
+}
+#returnHome{
+    color: #4286f4;
+}

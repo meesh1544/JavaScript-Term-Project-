@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link href="css/canvasGame.css" rel="stylesheet">
+</head>    
+<body onload="startGame()">
+<h1>Help the diver avoid sharp coral and jellyfish!</h1>
+<script>
+var myGamePiece;
+var myObstacles = [];
+var myScore;
+var myLevel;
+var gameOverCrash;
+var myGameSound;
+var gameOverText;
+
+function startGame() {
+    myGamePiece = new component(60, 70, "media/diver2.png", 10, 120, "image");
+    myScore = new component("30px", "Consolas", "black", 280, 40, "text");
+    myLevel = new component("30px", "Consolas", "black", 80, 40, "text");
+    gameOverCrash = new sound("media/slash-21834.mp3");
+    myGameSound = new sound("media/swimming.mp3");
+    gameOverText = new component("70px", "veranda", "red", 200, 300, "text");
+    document.getElementById("playAgain").style.visibility = "hidden";
+    
+    myGameSound.play();
+    myGameArea.start();
+
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 980;
+        this.canvas.height = 420;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 10);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+function sound(src){
+    this.sound = document.createElement("audio");
+    this.sound.src = src;
+    this.sound.setAttribute("preload", "auto");
+    this.sound.setAttribute("controls", "none");
+    if(src == "media/swimming.mp3"){
+        this.sound.setAttribute("loop", true);
+    }
+    this.sound.style.display = "none";
+    document.body.appendChild(this.sound);
+    this.play = function(){
+        this.sound.play();
+    }
+
+    this.stop = function(){
+        this.sound.pause();
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        if (this.type == "text") {
+            ctx.font = this.width + " " + this.height;
+            ctx.fillStyle = color;
+            ctx.fillText(this.text, this.x, this.y);
+        }
+        else if (type == "image") {
+            ctx.drawImage(this.image, 
+                this.x, 
+                this.y,
+                this.width, this.height);
+        }  
+        else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;        
+    }
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y + 15;
+        var mybottom = this.y + (this.height) - 19;
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            myGameArea.stop();
+            myGameArea.clear();
+            myGameSound.stop();
+            gameOverCrash.play();
+            gameOverText.text = "GAME OVER";
+            gameOverText.update();
+            return;
+        } 
+    }
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(200)) {
+        x = myGameArea.canvas.width;
+        minHeight = 60;
+        maxHeight = 160;
+        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+        minGap = 80;
+        maxGap = 220;
+        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+        myObstacles.push(new component(30, height, "media/jellyfish.png", x, 0, "image"));
+		myObstacles.push(new component(30, x-height-gap, "media/coral.jpg", x, height+gap, "image"));
+ 		//myObstacles.push(new component(10, height, "brown", x, 0));
+        //myObstacles.push(new component(10, x - height - gap, "brown", x, height + gap));
+        document.getElementById("playAgain").style.visibility = "visible"; 
+        window.onclick = function(event) {
+            if (event.target == modal || event.target == close) {
+                modal.style.display = "none";
+            }
+        document.getElementsByClassName("close")[0].onclick=function(
+
+        ){
+            document.getElementById("current").style.display="none";
+        }
+        }
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].speedX = -1;
+        myObstacles[i].newPos();
+        myObstacles[i].update();
+    }
+    myScore.text="SCORE: " + myGameArea.frameNo;
+    myScore.update();
+    myLevel.text="Level: " + Math.round(myGameArea.frameNo/500);
+    myLevel.update();
+    myGamePiece.newPos();    
+    myGamePiece.update();
+}
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function moveup() {
+    myGamePiece.speedY = -1; 
+}
+
+function movedown() {
+    myGamePiece.speedY = 1; 
+}
+
+function moveleft() {
+    myGamePiece.speedX = -1; 
+}
+
+function moveright() {
+    myGamePiece.speedX = 1; 
+}
+
+function clearmove() {
+    myGamePiece.speedX = 0; 
+    myGamePiece.speedY = 0; 
+}
+</script>
+<div style="text-align:center;width:900px;background-color:rgb(65, 180, 218); border: 7px solid darkblue;">
+  <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+
+  <div style="text-align:center;padding:15px;width:860px;background-color:(65, 180,218);">
+    <button id="playAgain" onclick="location=URL">Play Again</button>
+    <button id="close" onclick="location=URL">Close</button>
+</div>
+<section id = "modal">
+    <div id = "box">
+        <span id="close">&times;</span>
+</div>
+</section>
+<div class = "mainScreen>
+    <a href = "finalProject.html id = "returnHome"></a>
+</div>
+<h1>Jellyfish Dive</h1>
+<footer>Michelle Beckett </footer>
+</body>
+</html>
