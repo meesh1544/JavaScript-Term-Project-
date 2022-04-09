@@ -107,3 +107,11 @@ nav li:hover{
     line-height: 160%;
     border: 2px solid turquoise;
 }
+a{
+    position: absolute;
+    top: 0;
+    left: 20px;
+    text-align: center;
+    font-size: 3em;
+    color: white;
+}

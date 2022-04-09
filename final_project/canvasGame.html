@@ -6,6 +6,7 @@
 </head>    
 <body onload="startGame()">
 <h1>Help the diver avoid sharp coral and jellyfish!</h1>
+
 <script>
 var myGamePiece;
 var myObstacles = [];
@@ -16,12 +17,12 @@ var myGameSound;
 var gameOverText;
 
 function startGame() {
-    myGamePiece = new component(60, 70, "media/diver2.png", 10, 120, "image");
+    myGamePiece = new component(60, 70, "media/diver.png", 10, 120, "image");
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myLevel = new component("30px", "Consolas", "black", 80, 40, "text");
     gameOverCrash = new sound("media/slash-21834.mp3");
     myGameSound = new sound("media/swimming.mp3");
-    gameOverText = new component("70px", "veranda", "red", 200, 300, "text");
+    gameOverText = new component("70px", "veranda", "red", 100, 200, "text");
     document.getElementById("playAgain").style.visibility = "hidden";
     
     myGameSound.play();
@@ -32,8 +33,8 @@ function startGame() {
 var myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 980;
-        this.canvas.height = 420;
+        this.canvas.width = 600;
+        this.canvas.height = 260;
         this.context = this.canvas.getContext("2d");
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
@@ -139,8 +140,8 @@ function updateGameArea() {
         minGap = 80;
         maxGap = 220;
         gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
-        myObstacles.push(new component(30, height, "media/jellyfish.png", x, 0, "image"));
-		myObstacles.push(new component(30, x-height-gap, "media/coral.jpg", x, height+gap, "image"));
+        myObstacles.push(new component(30, height, "media/jelly-fish.png", x, 0, "image"));
+		myObstacles.push(new component(40, x-height-gap, "media/coral.png", x, height+gap, "image"));
  		//myObstacles.push(new component(10, height, "brown", x, 0));
         //myObstacles.push(new component(10, x - height - gap, "brown", x, height + gap));
         document.getElementById("playAgain").style.visibility = "visible"; 
@@ -148,11 +149,6 @@ function updateGameArea() {
             if (event.target == modal || event.target == close) {
                 modal.style.display = "none";
             }
-        document.getElementsByClassName("close")[0].onclick=function(
-
-        ){
-            document.getElementById("current").style.display="none";
-        }
         }
     }
     for (i = 0; i < myObstacles.length; i += 1) {
@@ -194,23 +190,17 @@ function clearmove() {
     myGamePiece.speedY = 0; 
 }
 </script>
-<div style="text-align:center;width:900px;background-color:rgb(65, 180, 218); border: 7px solid darkblue;">
+<div style="text-align:center;width:460px;background-color:rgb(65, 180, 218); border: 7px solid darkblue;">
   <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
   <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
   <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
   <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
 
-  <div style="text-align:center;padding:15px;width:860px;background-color:(65, 180,218);">
+<div style="text-align:center;padding:15px;width:460px;background-color:(65, 180,218);">
     <button id="playAgain" onclick="location=URL">Play Again</button>
-    <button id="close" onclick="location=URL">Close</button>
-</div>
-<section id = "modal">
-    <div id = "box">
-        <span id="close">&times;</span>
+    <a href="../final_project/finalProject.html">Home</a>
 </div>
 </section>
-<div class = "mainScreen>
-    <a href = "finalProject.html id = "returnHome"></a>
 </div>
 <h1>Jellyfish Dive</h1>
 <footer>Michelle Beckett </footer>
