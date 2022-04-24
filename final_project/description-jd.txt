@@ -1,15 +1,13 @@
 ///---------------------------------------
 /// Game Description
 ///---------------------------------------
-Dress Josie is an iterractive game that you drag the clothes and accessories
-to dress josie. There are many diffenent ways she can dressed and accessoried, 
-so have fun!
-
+Jellyfish dive is an interactive game where a diver swims through sharp coral 
+and stinging jellyfish. Try to make it to the end without getting caught.
 ///---------------------------------------
 /// How to Play
 ///---------------------------------------
-Start by picking the clothes for Josie and finish getting her ready by accessorizing. 
-
+Use the up and down keys to navigate your way through the ocean. Watch out for
+stinging jellyfish and sharp coral. 
 ///---------------------------------------
 /// File Directory
 ///---------------------------------------

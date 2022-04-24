@@ -1,16 +1,11 @@
-h1{
-    color: black;
-    font-size: 30px;
-    background-color: rgb(13, 115, 133);
-    padding: 5px;
-    border-radius: 5px;
-    position: relative;
-}
-a{
-    position: relative;
-    top: 0;
-    left: 20px;
-    text-align: right end;
-    font-size: 3em;
+body{
+    background-color: midnightblue;
     color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+canvas{
+    border: 2px 2px solid yellow;
+    height: 400px;
 }
