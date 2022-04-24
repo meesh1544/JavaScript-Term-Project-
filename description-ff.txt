@@ -1,0 +1,25 @@
+///---------------------------------------
+/// Game Description
+///---------------------------------------
+Tetris is an interractive game that has pieces that move to fit into a straight line. If you 
+allign all of the blocks into a straight line it will remove those game pieces. Be careful to
+not have the games pieces accumulate at the top, or you lose.
+
+///---------------------------------------
+/// How to Play
+///---------------------------------------
+Use the up, down, right, and left arrow keys to adjust the game pieces how you want them to fit
+on the board.
+///---------------------------------------
+/// File Directory
+///---------------------------------------
+finalProject
+    --> Tetris
+        -> css
+            -> game3.css
+        -> media
+            -> tetris-pieces.png
+        -> js
+            -> js/game3.js
+        -> game3.html
+        -> readMe.txt

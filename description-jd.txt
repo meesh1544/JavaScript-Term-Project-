@@ -1,0 +1,26 @@
+///---------------------------------------
+/// Game Description
+///---------------------------------------
+Jellyfish dive is an interactive game where a diver swims through sharp coral 
+and stinging jellyfish. Try to make it to the end without getting caught.
+///---------------------------------------
+/// How to Play
+///---------------------------------------
+Use the up and down keys to navigate your way through the ocean. Watch out for
+stinging jellyfish and sharp coral. 
+///---------------------------------------
+/// File Directory
+///---------------------------------------
+--> Jellyfish Dive
+        ->css
+            ->canvasGame.css
+        ->media
+            -> jellyfish.png
+            -> ocean.jpeg
+            -> coral.png
+            -> diver2.png
+            -> bubbles-14830.mp3
+            -> rock-smash-6304.mp3
+            -> slash-21834.mp3
+        ->canvasGame.html
+        ->readMe.html

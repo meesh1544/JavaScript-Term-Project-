@@ -1,0 +1,27 @@
+///---------------------------------------
+/// Game Description
+///---------------------------------------
+This is a game of Tic-Tac-Toe. The object of the game is
+to get three in a row. You can win by three in a row 
+horizontally, vertically, or diagonally. Click a box to 
+choose either x's or o's.
+///---------------------------------------
+/// How to Play
+///---------------------------------------
+Click on a tile to play either the x or the o. Get three 
+in a row and you win!
+finalProject
+///---------------------------------------
+/// File Directory
+///---------------------------------------
+finalProject
+    -->Tic-Tac-Toe
+        ->css
+            ->ttt.css
+        ->media
+            ->pexels-photo-2238885.jpg
+        ->js 
+            ->tic-tac-toe.js
+            ->jquery.js
+        ->Tic-Tac-Toe.html
+        ->readMe.txt
