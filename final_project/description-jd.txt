@@ -24,3 +24,15 @@ stinging jellyfish and sharp coral.
             -> slash-21834.mp3
         ->canvasGame.html
         ->readMe.html
+///---------------------------------------
+/// Issues
+///---------------------------------------
+    --> The only issue I had with Jellyfish Dive was that the png
+     objects were not transparent when I transffered them from 
+     the web. Luckily Lisa was able to fix it for me!
+///---------------------------------------
+/// Furture releases
+///---------------------------------------
+    --> In the furure I would like to add a few more levels to the 
+    game. Each level would grow in intensity and the objects to 
+    collide with would get larger and more of them. 

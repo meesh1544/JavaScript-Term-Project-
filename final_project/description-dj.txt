@@ -31,3 +31,16 @@ finalProject
             -> R.png
         ->myDragandDrop.html
         ->readMe.txt
+///-----------------------------------------------
+/// Issues 
+///-----------------------------------------------
+    -->One of the issues that I had with this game is that when you restar the game it 
+    piles all of the items in a straight line. I tried different arrangements in a 
+    table, but it still didn't do exactly what I had wanted it to. 
+///-----------------------------------------------
+/// Future releases
+///-----------------------------------------------
+    -->In the future I would also like to create more options for different dress up
+    puzzles. Next I would like to design a fire fighter dress up game. I would pick a 
+    theme to each set up the puzzles and have three or more puzzles that would have one 
+    puzzle after the other.  

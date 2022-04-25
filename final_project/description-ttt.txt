@@ -25,3 +25,13 @@ finalProject
             ->jquery.js
         ->Tic-Tac-Toe.html
         ->readMe.txt
+///-----------------------------------------------
+/// Issues 
+///-----------------------------------------------
+    --> I didn't have many issues with tic-tac-toe. Just minor configuration
+    errors that were easily fixable.
+///-----------------------------------------------
+/// Future releases
+///-----------------------------------------------
+    --> In the future I would like to have multiple levels with a winner 
+    after three games. 

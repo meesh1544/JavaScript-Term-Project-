@@ -5,9 +5,9 @@
 has options of different clothes and accessories. It is in a drag and drop format.
 2. Jellyfish Dive is an interactive game that snorkles through stinging Jellyfish
 and sharp coral. Don't get too close or it's game over.
-3. Checkers is a classic board game that moves each board piece across the board. 
-Capture all of your apponent's board pieces and you win!
-
+3. Tic-Tac-Toe is a game that is between two players using x's and o's to get three
+ in a row on a game board. You can have horizonal, vertical, and diagnoal matches too 
+win.
 ///----------------------------------------
 ///File Directory
 ///----------------------------------------
@@ -42,15 +42,6 @@ finalProject
             -> slash-21834.mp3
         ->canvasGame.html
         ->readMe.html
-    --> tetris
-        -> css
-            ->game3.css
-        -> media
-            -> tetris-pieces.png
-        -> js
-            ->game3.js
-        -> game3.html
-        -> readMe.txt
     --> Tic-Tac-Toe
         -> css
             -> ttt.css
@@ -59,6 +50,18 @@ finalProject
         -> js
         -> Tic-Tac-Toe.html
         ->readMe.txt
+///------------------------------------
+/// Future releases
+///------------------------------------
+    -->In the future I would like to add another level to 
+    Jellyfish Dive. Each level would get a little harder to 
+    navigate and add more objects to collide with.
+///------------------------------------
+/// Issues
+///------------------------------------
+--> I didn't have many issues with this project. I had to figure 
+out the 'home' button which by itself was not tricky but figuring
+out which method to use was.
 
 ///------------------------------------
 /// Contact Information
